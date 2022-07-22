@@ -1,0 +1,16 @@
+<nav>
+    <div class="nav-wrapper teal lighten-2 ">
+      <a href="#" class="brand-logo">Poller</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{% url 'index' %}">Questions</a></li>
+        {%if request.user.is_authenticated %}
+          <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'auth_login' %}">Login</a></li>
+        {% endif %}
+        {%if request.user.is_authenticated %}
+          <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
